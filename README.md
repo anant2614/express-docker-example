@@ -1,40 +1,79 @@
+
 # express-docker-example
+
+  
 
 The Dockerfile follows the below steps to build the image:
 
-1.FROM ubuntu
-  Use ubuntu as the OS for the container.
+  
 
-2.RUN apt-get update
-  Update the repositories.
+### FROM ubuntu
 
-3.RUN apt-get install curl -y
-  Install the curl command.
+Use ubuntu as the OS for the container.
 
-4.RUN apt-get install software-properties-common -y
-  Install some useful resources for adding/removing PPAs.
+  
 
-5.RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-  Install the PPA.
+### RUN apt-get update
 
-6.RUN apt-get install nodejs -y
-  Install nodejs.
+Update the repositories.
 
-7.RUN node -v
-  Verifies node version.
+  
 
-8.RUN npm -v
-  Verifies npm version.
+### RUN apt-get install curl -y
 
-9.COPY express-docker-app /opt/express-docker-app
-  Copies the express app to opt directory of ubuntu.
+Install the curl command.
 
-10.ENTRYPOINT node /opt/express-docker-app/app.js
-   Runs the node app.
+  
 
+### RUN apt-get install software-properties-common -y
 
-# Build the image:
+Install some useful resources for adding/removing PPAs.
+
+  
+
+### RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+
+Install the PPA.
+
+  
+
+### RUN apt-get install nodejs -y
+
+Install nodejs.
+
+  
+
+### RUN node -v
+
+Verifies node version.
+
+  
+
+### RUN npm -v
+
+Verifies npm version.
+
+  
+
+### COPY express-docker-app /opt/express-docker-app
+
+Copies the express app to opt directory of ubuntu.
+
+  
+
+### ENTRYPOINT node /opt/express-docker-app/app.js
+
+Runs the node app.
+
+  
+  
+
+## #Build the image:
+
 docker build express-docker-example
 
-# Run the image and start the container with port mapping:
+  
+
+## #Run the image and start the container with port mapping:
+
 docker run -p 3001:3000 e63aa8460320
